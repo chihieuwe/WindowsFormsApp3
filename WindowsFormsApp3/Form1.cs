@@ -56,7 +56,7 @@ namespace WindowsFormsApp3
         private void button1_Click(object sender, EventArgs e)
         {
             table.Rows.Add(
-            dataGridView1.DataSource = table;
+            dataGridView1.DataSource = table);
         }
 
         private void toolStripComboBox1_Click(object sender, EventArgs e)
