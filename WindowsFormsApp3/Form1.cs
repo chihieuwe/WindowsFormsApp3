@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Net.Http.Headers;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -16,22 +17,18 @@ namespace WindowsFormsApp3
         
         public Form1()
         {
-            InitializeComponent();   
+            InitializeComponent();
         }
         DataTable table = new DataTable();
         int indexRow;
         Form2 checkQuantity = new Form2();
         Form3 printBill = new Form3();
 
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
+        public bool isEmpty() {
+            if (txtID.Text == "" || txtName.Text == "" || txtPrice.Text == "" || txtQuantity.Text == "") {
+                return true;
+            }
+            else { return false; }
         }
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
@@ -46,6 +43,7 @@ namespace WindowsFormsApp3
             table.Columns.Add("Quantity", typeof(int));
             table.Columns.Add("Price", typeof(int));
             dataGridView1.DataSource = table;
+            dataGridView1.Rows[0].Selected = true;
         }
 
         private void toolStripLabel1_Click(object sender, EventArgs e)
@@ -65,62 +63,37 @@ namespace WindowsFormsApp3
         }
 
         
-        private void button1_Click(object sender, EventArgs e)
+        private void buttonAdd_Click(object sender, EventArgs e)
         {
-            
-            table.Rows.Add(txtID.Text, txtName.Text, txtQuantity.Text, txtPrice.Text);
-            dataGridView1.DataSource = table;
+            if (isEmpty() == false) {
+                table.Rows.Add(txtID.Text, txtName.Text, txtQuantity.Text, txtPrice.Text);
+                dataGridView1.DataSource = table;
+            }
+            else { MessageBox.Show("All spaces must not be empty, please try again."); }
         }
 
-        private void toolStripComboBox1_Click(object sender, EventArgs e)
+        private void buttonEdit_Click(object sender, EventArgs e)
         {
-
+            if(isEmpty() == false) {
+                DataGridViewRow newDataRow = dataGridView1.Rows[indexRow];
+                newDataRow.Cells[0].Value = txtID.Text;
+                newDataRow.Cells[1].Value = txtName.Text;
+                newDataRow.Cells[2].Value = txtQuantity.Text;
+                newDataRow.Cells[3].Value = txtPrice.Text;
+            }
+            else { MessageBox.Show("All spaces must not be empty, please try again."); }
         }
 
-        private void toolStripLabel2_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            DataGridViewRow newDataRow = dataGridView1.Rows[indexRow];
-            newDataRow.Cells[0].Value = txtID.Text;
-            newDataRow.Cells[1].Value = txtName.Text;
-            newDataRow.Cells[2].Value = txtQuantity.Text;
-            newDataRow.Cells[3].Value = txtPrice.Text;
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
+        private void buttonDelete_Click(object sender, EventArgs e)
         {
             int rowIndex = dataGridView1.CurrentCell.RowIndex;
             dataGridView1.Rows.RemoveAt(rowIndex);         // remove value of a row
         }
 
-        private void button4_Click(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void toolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void checkQuantityToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
-           
-            checkQuantity.Show();
-           
-            
-            
+            Form2 checkQuantity = new Form2();
+            checkQuantity.Show();          
         }
 
         private void printToolStripMenuItem_Click(object sender, EventArgs e)
