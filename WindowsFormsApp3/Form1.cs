@@ -21,6 +21,7 @@ namespace WindowsFormsApp3
         }
         DataTable table = new DataTable();
         int indexRow;
+        DataRow dataRow;
         Form2 checkQuantity = new Form2();
         Form3 printBill = new Form3();
 
@@ -42,6 +43,12 @@ namespace WindowsFormsApp3
             table.Columns.Add("Name", typeof(string));
             table.Columns.Add("Quantity", typeof(int));
             table.Columns.Add("Price", typeof(int));
+            dataRow = table.NewRow();
+            dataRow["ID"] = 1;
+            dataRow["Name"] = "Mark";
+            dataRow["Quantity"] = 1;
+            dataRow["price"] = 100;
+            table.Rows.Add(dataRow);
             dataGridView1.DataSource = table;
             dataGridView1.Rows[0].Selected = true;
         }
@@ -93,6 +100,7 @@ namespace WindowsFormsApp3
         private void checkQuantityToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form2 checkQuantity = new Form2();
+            checkQuantity.table = table;
             checkQuantity.Show();          
         }
 
