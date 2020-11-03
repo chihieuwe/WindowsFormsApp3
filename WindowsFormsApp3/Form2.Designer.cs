@@ -87,7 +87,6 @@
             this.inputMerchandiseToolStripMenuItem.Name = "inputMerchandiseToolStripMenuItem";
             this.inputMerchandiseToolStripMenuItem.Size = new System.Drawing.Size(210, 26);
             this.inputMerchandiseToolStripMenuItem.Text = "InputMerchandise";
-            this.inputMerchandiseToolStripMenuItem.Click += new System.EventHandler(this.inputMerchandiseToolStripMenuItem_Click);
             // 
             // checkQuantityToolStripMenuItem
             // 

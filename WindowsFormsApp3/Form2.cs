@@ -24,11 +24,6 @@ namespace WindowsFormsApp3
             dataGridView1.Rows[0].Selected = true;
         }
 
-        private void inputMerchandiseToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-         
-        }
-
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -44,7 +39,10 @@ namespace WindowsFormsApp3
             int i;
             for(i = 0; i < dataGridView1.Rows.Count - 1; i = i + 1) {
                 if (Int32.Parse(dataGridView1.Rows[i].Cells[2].Value.ToString()) > quantity) {
+                    CurrencyManager currencyManager = (CurrencyManager)BindingContext[dataGridView1.DataSource];
+                    currencyManager.SuspendBinding();
                     dataGridView1.Rows[i].Visible = false;
+                    currencyManager.ResumeBinding();
                 }
             }
         }
