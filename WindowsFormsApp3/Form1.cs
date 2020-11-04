@@ -45,10 +45,40 @@ namespace WindowsFormsApp3
             table.Columns.Add("Price", typeof(int));
             dataRow = table.NewRow();
             dataRow["ID"] = 1;
-            dataRow["Name"] = "Mark";
-            dataRow["Quantity"] = 1;
-            dataRow["price"] = 100;
+            dataRow["Name"] = "CocaCola";
+            dataRow["Quantity"] = 55;
+            dataRow["Price"] = 7000;
             table.Rows.Add(dataRow);
+            DataRow dataRow2 = table.NewRow();
+            dataRow2["ID"] = 2;
+            dataRow2["Name"] = "Pepsi";
+            dataRow2["Quantity"] = 80;
+            dataRow2["Price"] = 7500;
+            table.Rows.Add(dataRow2);
+            DataRow dataRow3 = table.NewRow();
+            dataRow3["ID"] = 3;
+            dataRow3["Name"] = "Iphone 7";
+            dataRow3["Quantity"] = 10;
+            dataRow3["Price"] = 7000000;
+            table.Rows.Add(dataRow3);
+            DataRow dataRow4 = table.NewRow();
+            dataRow4["ID"] = 4;
+            dataRow4["Name"] = "Colgate Toothpaste";
+            dataRow4["Quantity"] = 170;
+            dataRow4["Price"] = 20000;
+            table.Rows.Add(dataRow4);
+            DataRow dataRow5 = table.NewRow();
+            dataRow5["ID"] = 5;
+            dataRow5["Name"] = "Sugar(1kg bag)";
+            dataRow5["Quantity"] = 50;
+            dataRow5["Price"] = 45000;
+            table.Rows.Add(dataRow5);
+            DataRow dataRow6 = table.NewRow();
+            dataRow6["ID"] = 6;
+            dataRow6["Name"] = "Heinz Ketchup";
+            dataRow6["Quantity"] = 210;
+            dataRow6["Price"] = 35000;
+            table.Rows.Add(dataRow6);
             dataGridView1.DataSource = table;
             dataGridView1.Rows[0].Selected = true;
         }
@@ -106,6 +136,7 @@ namespace WindowsFormsApp3
 
         private void printToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Form3 printBill = new Form3();
             printBill.Show();
         }
 
