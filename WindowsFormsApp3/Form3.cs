@@ -127,7 +127,6 @@ namespace WindowsFormsApp3
             
 
             dataGridView1.DataSource = null;
-            dataGridView1.AutoGenerateColumns = false;
             dataGridView1.DataSource = orderTable;
 
             string str = textId.Text;
