@@ -57,14 +57,14 @@ namespace WindowsFormsApp3
             table.Rows.Add(dataRow2);
 
             DataRow dataRow3 = table.NewRow();
-            dataRow3["ID"] = 4;
+            dataRow3["ID"] = 3;
             dataRow3["Name"] = "Colgate Toothpaste";
             dataRow3["Quantity"] = 170;
             dataRow3["Price"] = 20000;
             table.Rows.Add(dataRow3);
 
             DataRow dataRow4 = table.NewRow();
-            dataRow4["ID"] = 3;
+            dataRow4["ID"] = 4;
             dataRow4["Name"] = "Iphone";
             dataRow4["Quantity"] = 10;
             dataRow4["Price"] = 7000000;
@@ -106,7 +106,7 @@ namespace WindowsFormsApp3
         private void buttonEdit_Click(object sender, EventArgs e)
         {
             if(isEmpty() == false) {
-                DataGridViewRow newDataRow = dataGridView1.Rows[indexRow];
+                DataGridViewRow newDataRow = dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex];
                 newDataRow.Cells[0].Value = txtID.Text;
                 newDataRow.Cells[1].Value = txtName.Text;
                 newDataRow.Cells[2].Value = txtQuantity.Text;
@@ -148,6 +148,15 @@ namespace WindowsFormsApp3
             txtName.Text = dataGridView1.Rows[rowIndex].Cells[1].Value.ToString();
             txtQuantity.Text = dataGridView1.Rows[rowIndex].Cells[2].Value.ToString();
             txtPrice.Text = dataGridView1.Rows[rowIndex].Cells[3].Value.ToString();
+        }
+
+        private void dataGridView1_SelectionChanged(object sender, EventArgs e) {
+            foreach (DataGridViewRow row in dataGridView1.SelectedRows) {
+                txtID.Text = row.Cells[0].Value.ToString();
+                txtName.Text = row.Cells[1].Value.ToString();
+                txtQuantity.Text = row.Cells[2].Value.ToString();
+                txtPrice.Text = row.Cells[3].Value.ToString();
+            }
         }
     }
 }
