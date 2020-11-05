@@ -145,9 +145,9 @@ namespace WindowsFormsApp3
             int rowIndex = dataGridView1.CurrentCell.RowIndex;
 
             txtID.Text = dataGridView1.Rows[rowIndex].Cells[0].Value.ToString();
-            txtName.Text = dataGridView1.Rows[rowIndex].Cells[0].Value.ToString();
-            txtQuantity.Text = dataGridView1.Rows[rowIndex].Cells[0].Value.ToString();
-            txtPrice.Text = dataGridView1.Rows[rowIndex].Cells[0].Value.ToString();
+            txtName.Text = dataGridView1.Rows[rowIndex].Cells[1].Value.ToString();
+            txtQuantity.Text = dataGridView1.Rows[rowIndex].Cells[2].Value.ToString();
+            txtPrice.Text = dataGridView1.Rows[rowIndex].Cells[3].Value.ToString();
         }
     }
 }
