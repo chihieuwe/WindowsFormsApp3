@@ -45,6 +45,10 @@
             this.label7 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.OrderIdCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProductName = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.textId = new System.Windows.Forms.TextBox();
             this.textName = new System.Windows.Forms.TextBox();
             this.textOrderId = new System.Windows.Forms.TextBox();
@@ -194,12 +198,57 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.OrderIdCode,
+            this.ProductName,
+            this.Quantity,
+            this.Price});
             this.dataGridView1.Location = new System.Drawing.Point(24, 317);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(794, 146);
             this.dataGridView1.TabIndex = 9;
+            this.dataGridView1.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellEndEdit);
+            // 
+            // OrderIdCode
+            // 
+            this.OrderIdCode.DataPropertyName = "OrderIdCode";
+            this.OrderIdCode.HeaderText = "Order ID";
+            this.OrderIdCode.MinimumWidth = 6;
+            this.OrderIdCode.Name = "OrderIdCode";
+            this.OrderIdCode.Width = 125;
+            // 
+            // ProductName
+            // 
+            this.ProductName.DataPropertyName = "ProductName";
+            this.ProductName.HeaderText = "Product";
+            this.ProductName.Items.AddRange(new object[] {
+            "CocaCola",
+            "Pepsi",
+            "Colgate Toothpaste",
+            "Iphone",
+            "Sugar(1kg bag)",
+            "Heinz Ketchup"});
+            this.ProductName.MinimumWidth = 6;
+            this.ProductName.Name = "ProductName";
+            this.ProductName.Width = 125;
+            // 
+            // Quantity
+            // 
+            this.Quantity.DataPropertyName = "Quantity";
+            this.Quantity.HeaderText = "Quantity";
+            this.Quantity.MinimumWidth = 6;
+            this.Quantity.Name = "Quantity";
+            this.Quantity.Width = 125;
+            // 
+            // Price
+            // 
+            this.Price.DataPropertyName = "Price";
+            this.Price.HeaderText = "Price";
+            this.Price.MinimumWidth = 6;
+            this.Price.Name = "Price";
+            this.Price.Width = 125;
             // 
             // textId
             // 
@@ -242,7 +291,7 @@
             this.buttonSearch.Name = "buttonSearch";
             this.buttonSearch.Size = new System.Drawing.Size(75, 23);
             this.buttonSearch.TabIndex = 16;
-            this.buttonSearch.Text = "Search";
+            this.buttonSearch.Text = "Print";
             this.buttonSearch.UseVisualStyleBackColor = true;
             this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click);
             // 
@@ -313,5 +362,9 @@
         private System.Windows.Forms.TextBox textAfterSave;
         private System.Windows.Forms.Button buttonSearch;
         private System.Windows.Forms.TextBox textDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn OrderIdCode;
+        private System.Windows.Forms.DataGridViewComboBoxColumn ProductName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Price;
     }
 }

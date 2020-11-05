@@ -55,48 +55,42 @@ namespace WindowsFormsApp3
             dataRow2["Quantity"] = 80;
             dataRow2["Price"] = 7500;
             table.Rows.Add(dataRow2);
+
             DataRow dataRow3 = table.NewRow();
-            dataRow3["ID"] = 3;
-            dataRow3["Name"] = "Iphone 7";
-            dataRow3["Quantity"] = 10;
-            dataRow3["Price"] = 7000000;
+            dataRow3["ID"] = 4;
+            dataRow3["Name"] = "Colgate Toothpaste";
+            dataRow3["Quantity"] = 170;
+            dataRow3["Price"] = 20000;
             table.Rows.Add(dataRow3);
+
             DataRow dataRow4 = table.NewRow();
-            dataRow4["ID"] = 4;
-            dataRow4["Name"] = "Colgate Toothpaste";
-            dataRow4["Quantity"] = 170;
-            dataRow4["Price"] = 20000;
+            dataRow4["ID"] = 3;
+            dataRow4["Name"] = "Iphone";
+            dataRow4["Quantity"] = 10;
+            dataRow4["Price"] = 7000000;
             table.Rows.Add(dataRow4);
+
             DataRow dataRow5 = table.NewRow();
             dataRow5["ID"] = 5;
             dataRow5["Name"] = "Sugar(1kg bag)";
             dataRow5["Quantity"] = 50;
             dataRow5["Price"] = 45000;
             table.Rows.Add(dataRow5);
+
             DataRow dataRow6 = table.NewRow();
             dataRow6["ID"] = 6;
             dataRow6["Name"] = "Heinz Ketchup";
             dataRow6["Quantity"] = 210;
             dataRow6["Price"] = 35000;
             table.Rows.Add(dataRow6);
+
             dataGridView1.DataSource = table;
-            dataGridView1.Rows[0].Selected = true;
+
         }
 
         private void toolStripLabel1_Click(object sender, EventArgs e)
         {
 
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            indexRow = e.RowIndex; 
-            DataGridViewRow row = dataGridView1.Rows[indexRow];
-
-            txtID.Text = row.Cells[0].Value.ToString();   //add index number for each row 
-            txtName.Text = row.Cells[1].Value.ToString();
-            txtQuantity.Text = row.Cells[2].Value.ToString();
-            txtPrice.Text = row.Cells[3].Value.ToString();
         }
 
         
@@ -137,6 +131,7 @@ namespace WindowsFormsApp3
         private void printToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form3 printBill = new Form3();
+            printBill.f1table = table;
             printBill.Show();
         }
 
@@ -145,9 +140,14 @@ namespace WindowsFormsApp3
             this.Close();
         }
 
-        private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
-        {
+        private void dataGridView1_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e) {
+            if (e.StateChanged != DataGridViewElementStates.Selected) return;
+            int rowIndex = dataGridView1.CurrentCell.RowIndex;
 
+            txtID.Text = dataGridView1.Rows[rowIndex].Cells[0].Value.ToString();
+            txtName.Text = dataGridView1.Rows[rowIndex].Cells[0].Value.ToString();
+            txtQuantity.Text = dataGridView1.Rows[rowIndex].Cells[0].Value.ToString();
+            txtPrice.Text = dataGridView1.Rows[rowIndex].Cells[0].Value.ToString();
         }
     }
 }

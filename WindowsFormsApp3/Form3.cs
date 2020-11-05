@@ -19,6 +19,7 @@ namespace WindowsFormsApp3
 
         DataTable table = new DataTable();
         DataTable orderTable = new DataTable();
+        public DataTable f1table { get; set; }
 
         public float discount(int original, int percentage) {
             float result = 0;
@@ -99,8 +100,8 @@ namespace WindowsFormsApp3
 
             DataRow orderRow4 = orderTable.NewRow();
             orderRow4["OrderIdCode"] = 217;
-            orderRow4["ProductName"] = "Iphone7";
-            orderRow4["Quantity"] = 1;
+            orderRow4["ProductName"] = "Iphone";
+            orderRow4["Quantity"] = 2;
             orderRow4["Price"] = 7000000;
             orderTable.Rows.Add(orderRow4);
 
@@ -117,12 +118,20 @@ namespace WindowsFormsApp3
             orderRow6["Quantity"] = 3;
             orderRow6["Price"] = 35000;
             orderTable.Rows.Add(orderRow6);
+
+            dataGridView1.DataSource = orderTable;
         }
 
         private void buttonSearch_Click(object sender, EventArgs e) {
+
+            
+
             dataGridView1.DataSource = null;
+            dataGridView1.AutoGenerateColumns = false;
             dataGridView1.DataSource = orderTable;
+
             string str = textId.Text;
+
             string name, orderId, date;
             name = orderId = date = "";
             int total = 0;
@@ -166,6 +175,23 @@ namespace WindowsFormsApp3
                 }
             }
 
+        }
+
+        private void dataGridView1_CellEndEdit(object sender, DataGridViewCellEventArgs e) {
+            string product = orderTable.Rows[e.RowIndex].Field<string>(1);
+            int quantity = orderTable.Rows[e.RowIndex].Field<int>(2);
+            int productPrice = 0;
+            int totalPrice;
+
+            for (int i = 0; i < f1table.Rows.Count; i = i + 1) {
+                if (f1table.Rows[i].Field<string>(1).ToString() == product) {
+                    productPrice = f1table.Rows[i].Field<int>(3);
+                    break;
+                }
+            }
+
+            totalPrice = quantity * productPrice;
+            orderTable.Rows[e.RowIndex][3] = totalPrice;
         }
     }
 }
