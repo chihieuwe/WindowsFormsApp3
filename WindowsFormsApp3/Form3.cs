@@ -21,7 +21,7 @@ namespace WindowsFormsApp3
         DataTable orderTable = new DataTable();
         public DataTable f1table { get; set; }
 
-        public List<object> products3 = new List<object>(FormDataList.products); // Get list from form 1 to form 3
+        public List<object> products3 = new List<object>(Merchandise.products); // Get list from form 1 to form 3
 
         public float discount(int original, int percentage) {
             float result = 0;

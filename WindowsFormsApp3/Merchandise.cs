@@ -8,6 +8,8 @@ using System.Windows.Forms;
 namespace WindowsFormsApp3 {
     class Merchandise {
 
+        static public List<object> products = new List<object>();
+
         public Merchandise(int id, string name, int quantity, int price) {  // Add merchandise object
             productID = id;
             productName = name;

@@ -19,7 +19,7 @@ namespace WindowsFormsApp3
 
         public DataTable table { get; set; }
 
-        public List<object> products2 = new List<object>(FormDataList.products); // Get list from form 1 to form 2
+        public List<object> products2 = new List<object>(Merchandise.products); // Get list from form 1 to form 2
 
         private void Form2_Load(object sender, EventArgs e) {
             dataGridView1.DataSource = table;

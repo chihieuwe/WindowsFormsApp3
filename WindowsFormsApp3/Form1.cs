@@ -26,7 +26,7 @@ namespace WindowsFormsApp3
         Form3 printBill = new Form3();
 
         public void addToList(object obj) {
-            FormDataList.products.Add(obj);
+            Merchandise.products.Add(obj);
         }
 
         public bool isEmpty() {
