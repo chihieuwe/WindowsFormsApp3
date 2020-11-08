@@ -69,7 +69,7 @@
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(116, 26);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -85,13 +85,14 @@
             // inputMerchandiseToolStripMenuItem
             // 
             this.inputMerchandiseToolStripMenuItem.Name = "inputMerchandiseToolStripMenuItem";
-            this.inputMerchandiseToolStripMenuItem.Size = new System.Drawing.Size(210, 26);
+            this.inputMerchandiseToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.inputMerchandiseToolStripMenuItem.Text = "InputMerchandise";
+            this.inputMerchandiseToolStripMenuItem.Click += new System.EventHandler(this.inputMerchandiseToolStripMenuItem_Click);
             // 
             // checkQuantityToolStripMenuItem
             // 
             this.checkQuantityToolStripMenuItem.Name = "checkQuantityToolStripMenuItem";
-            this.checkQuantityToolStripMenuItem.Size = new System.Drawing.Size(210, 26);
+            this.checkQuantityToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.checkQuantityToolStripMenuItem.Text = "CheckQuantity";
             // 
             // orderToolStripMenuItem
@@ -105,8 +106,9 @@
             // printBillToolStripMenuItem
             // 
             this.printBillToolStripMenuItem.Name = "printBillToolStripMenuItem";
-            this.printBillToolStripMenuItem.Size = new System.Drawing.Size(147, 26);
+            this.printBillToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.printBillToolStripMenuItem.Text = "Print Bill";
+            this.printBillToolStripMenuItem.Click += new System.EventHandler(this.printBillToolStripMenuItem_Click);
             // 
             // label1
             // 

@@ -25,6 +25,10 @@ namespace WindowsFormsApp3
         Form2 checkQuantity = new Form2();
         Form3 printBill = new Form3();
 
+        public void addToList(object obj) {
+            FormDataList.products.Add(obj);
+        }
+
         public bool isEmpty() {
             if (txtID.Text == "" || txtName.Text == "" || txtPrice.Text == "" || txtQuantity.Text == "") {
                 return true;
@@ -86,6 +90,20 @@ namespace WindowsFormsApp3
 
             dataGridView1.DataSource = table;
 
+            // Add merchandise objects
+            Merchandise cocacola = new Merchandise(1, "CocaCola", 55, 7000);
+            Merchandise pepsi = new Merchandise(2, "Pepsi", 80, 7500);
+            Merchandise toothpaste = new Merchandise(3, "Colgate Toothpaste", 170, 20000);
+            Merchandise iphone = new Merchandise(3, "Iphone", 10, 7000000);
+            Merchandise sugar = new Merchandise(4, "Sugar(1kg bag)", 50, 45000);
+            Merchandise ketchup = new Merchandise(5, "Heinz Ketchup", 210, 35000);
+
+            addToList(cocacola);
+            addToList(pepsi);
+            addToList(toothpaste);
+            addToList(iphone);
+            addToList(sugar);
+            addToList(ketchup);
         }
 
         private void toolStripLabel1_Click(object sender, EventArgs e)
@@ -125,7 +143,7 @@ namespace WindowsFormsApp3
         {
             Form2 checkQuantity = new Form2();
             checkQuantity.table = table;
-            checkQuantity.Show();          
+            checkQuantity.Show();
         }
 
         private void printToolStripMenuItem_Click(object sender, EventArgs e)

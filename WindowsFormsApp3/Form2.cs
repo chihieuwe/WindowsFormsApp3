@@ -19,6 +19,8 @@ namespace WindowsFormsApp3
 
         public DataTable table { get; set; }
 
+        public List<object> products2 = new List<object>(FormDataList.products); // Get list from form 1 to form 2
+
         private void Form2_Load(object sender, EventArgs e) {
             dataGridView1.DataSource = table;
             dataGridView1.Rows[0].Selected = true;
@@ -45,6 +47,17 @@ namespace WindowsFormsApp3
                     currencyManager.ResumeBinding();
                 }
             }
+        }
+
+        private void inputMerchandiseToolStripMenuItem_Click(object sender, EventArgs e) {
+            this.Close();
+        }
+
+        private void printBillToolStripMenuItem_Click(object sender, EventArgs e) {
+            Form3 printBill = new Form3();
+            printBill.f1table = table;
+            printBill.Show();
+            this.Hide();
         }
     }
 }

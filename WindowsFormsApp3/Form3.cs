@@ -21,6 +21,8 @@ namespace WindowsFormsApp3
         DataTable orderTable = new DataTable();
         public DataTable f1table { get; set; }
 
+        public List<object> products3 = new List<object>(FormDataList.products); // Get list from form 1 to form 3
+
         public float discount(int original, int percentage) {
             float result = 0;
             result = original - (percentage * original / 100);
@@ -191,6 +193,20 @@ namespace WindowsFormsApp3
 
             totalPrice = quantity * productPrice;
             orderTable.Rows[e.RowIndex][3] = totalPrice;
+        }
+
+        private void billToolStripMenuItem_Click(object sender, EventArgs e) {
+
+        }
+
+        private void inputMerchandiseToolStripMenuItem_Click(object sender, EventArgs e) {
+            this.Close();
+        }
+
+        private void checkQuantityToolStripMenuItem_Click(object sender, EventArgs e) {
+            Form2 checkQuantity = new Form2();
+            checkQuantity.table = table;
+            checkQuantity.Show();
         }
     }
 }

@@ -109,14 +109,16 @@
             // inputMerchandiseToolStripMenuItem
             // 
             this.inputMerchandiseToolStripMenuItem.Name = "inputMerchandiseToolStripMenuItem";
-            this.inputMerchandiseToolStripMenuItem.Size = new System.Drawing.Size(210, 26);
+            this.inputMerchandiseToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.inputMerchandiseToolStripMenuItem.Text = "InputMerchandise";
+            this.inputMerchandiseToolStripMenuItem.Click += new System.EventHandler(this.inputMerchandiseToolStripMenuItem_Click);
             // 
             // checkQuantityToolStripMenuItem
             // 
             this.checkQuantityToolStripMenuItem.Name = "checkQuantityToolStripMenuItem";
-            this.checkQuantityToolStripMenuItem.Size = new System.Drawing.Size(210, 26);
+            this.checkQuantityToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.checkQuantityToolStripMenuItem.Text = "CheckQuantity";
+            this.checkQuantityToolStripMenuItem.Click += new System.EventHandler(this.checkQuantityToolStripMenuItem_Click);
             // 
             // orderToolStripMenuItem
             // 
@@ -129,8 +131,9 @@
             // billToolStripMenuItem
             // 
             this.billToolStripMenuItem.Name = "billToolStripMenuItem";
-            this.billToolStripMenuItem.Size = new System.Drawing.Size(113, 26);
+            this.billToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.billToolStripMenuItem.Text = "Bill";
+            this.billToolStripMenuItem.Click += new System.EventHandler(this.billToolStripMenuItem_Click);
             // 
             // label2
             // 
